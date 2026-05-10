@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">About</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">JavaWebApp</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1 th:text="${title}">About</h1>
+        </header>
+
+        <section class="content">
+            <h2>Project Overview</h2>
+            <p th:text="${description}">Description</p>
+
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Java 11+</li>
+                        <li>Spring Boot 3.1.5</li>
+                        <li>Spring Web MVC</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>Thymeleaf Templates</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h3>Build & Deployment</h3>
+                    <ul>
+                        <li>Apache Maven</li>
+                        <li>WAR Packaging</li>
+                        <li>Git Version Control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Building the Application</h2>
+            <div class="code-block">
+                <p><strong>To build the WAR file:</strong></p>
+                <code>mvn clean package</code>
+                <p><strong>The WAR file will be located at:</strong></p>
+                <code>target/webapp-1.0.0.war</code>
+            </div>
+
+            <h2>Running the Application</h2>
+            <div class="code-block">
+                <p><strong>For development (using Spring Boot embedded Tomcat):</strong></p>
+                <code>mvn spring-boot:run</code>
+                <p><strong>For deployment (using the WAR file):</strong></p>
+                <p>Deploy the WAR file to any Java application server (Tomcat, Jetty, etc.)</p>
+            </div>
+
+            <div class="back-link">
+                <a href="/" class="btn">Back to Home</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Java Web Application. Built with ❤️ using Spring Boot.</p>
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

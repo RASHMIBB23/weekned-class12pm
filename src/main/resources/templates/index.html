@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Java Web App</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">JavaWebApp</div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1 th:text="${title}">Welcome</h1>
+            <p>Built with Spring Boot, Maven, and Thymeleaf</p>
+        </header>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>⚙️ Built with Spring Boot</h3>
+                <p>Modern Java framework for building web applications</p>
+            </div>
+            <div class="feature-card">
+                <h3>📦 Maven Build</h3>
+                <p>Professional build management and dependency handling</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 Responsive Design</h3>
+                <p>Beautiful and mobile-friendly user interface</p>
+            </div>
+        </section>
+
+        <section class="timestamp">
+            <p>Current Server Time: <strong th:text="${currentTime}">Loading...</strong></p>
+        </section>
+
+        <section class="message-section">
+            <h2>Message Board</h2>
+            <form method="post" action="/add-message" class="form">
+                <input type="text" name="message" placeholder="Enter your message..." required>
+                <button type="submit" class="btn">Add Message</button>
+            </form>
+
+            <div class="messages" th:if="${!messages.isEmpty()}">
+                <h3>Messages:</h3>
+                <ul>
+                    <li th:each="msg : ${messages}" th:text="${msg}">Message</li>
+                </ul>
+            </div>
+            <div th:if="${messages.isEmpty()}" class="no-messages">
+                <p>No messages yet. Be the first to add one!</p>
+            </div>
+        </section>
+
+        <section class="info">
+            <h2>About This Application</h2>
+            <p>This is a nice Java web application built with:</p>
+            <ul>
+                <li>Spring Boot 3.1.5</li>
+                <li>Apache Maven</li>
+                <li>Thymeleaf Template Engine</li>
+                <li>HTML5 & CSS3</li>
+            </ul>
+            <p>The application generates a <strong>.war</strong> file for deployment in application servers.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Java Web Application. Built with ❤️ using Spring Boot.</p>
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
