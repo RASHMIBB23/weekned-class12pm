@@ -1,6 +1,6 @@
 # Java Web Application
 
-A nice Spring Boot web application that generates a `.war` file for deployment.
+A nice Spring Boot web application that generates a `.war` file for deployment. with CICD
 
 ## Project Structure
 
